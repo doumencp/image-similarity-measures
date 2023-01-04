@@ -4,6 +4,7 @@ Currently implemented metrics are FSIM, ISSM, PSNR, RMSE, SAM, SRE, SSIM, UIQ.
 """
 
 import math
+from matplotlib import pyplot as plt
 
 import numpy as np
 from skimage.metrics import structural_similarity
@@ -156,7 +157,6 @@ def _ehs(x: np.ndarray, y: np.ndarray):
     Entropy-Histogram Similarity measure
     """
     H = (np.histogram2d(x.flatten(), y.flatten()))[0]
-
     return -np.sum(np.nan_to_num(H * np.log2(H)))
 
 
@@ -167,6 +167,9 @@ def _edge_c(x: np.ndarray, y: np.ndarray):
     # Use 100 and 200 as thresholds, no indication in the paper what was used
     g = cv2.Canny((x * 0.0625).astype(np.uint8), 100, 200)
     h = cv2.Canny((y * 0.0625).astype(np.uint8), 100, 200)
+    
+    g = cv2.Canny(x, 100, 200)
+    h = cv2.Canny(y, 100, 200)
 
     g0 = np.mean(g)
     h0 = np.mean(h)
@@ -202,7 +205,7 @@ def issm(org_img: np.ndarray, pred_img: np.ndarray) -> float:
     return np.nan_to_num(numerator / denominator)
 
 
-def ssim(org_img: np.ndarray, pred_img: np.ndarray, max_p: int = 4095) -> float:
+def ssim(org_img: np.ndarray, pred_img: np.ndarray, max_p: int = 255) -> float:
     """
     Structural Simularity Index
     """
@@ -321,3 +324,7 @@ metric_functions = {
     "ssim": ssim,
     "uiq": uiq,
 }
+
+# org = cv2.imread("../example/frame1.png")
+# pred = cv2.imread("../example/frame2.png")
+# print(issm(org, pred))  
