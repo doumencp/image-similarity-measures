@@ -29,7 +29,7 @@ setuptools.setup(
         "rasterio": ["rasterio"],
         "speedups": ["pyfftw"],
     },
-    install_requires=["numpy", "scikit-image", "opencv-python", "phasepack", "matplotlib"],
+    install_requires=["numpy", "scikit-image", "opencv-python", "phasepack"],
     python_requires=">=3.6",
     entry_points={
         "console_scripts": [

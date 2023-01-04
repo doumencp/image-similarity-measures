@@ -4,7 +4,6 @@ Currently implemented metrics are FSIM, ISSM, PSNR, RMSE, SAM, SRE, SSIM, UIQ.
 """
 
 import math
-from matplotlib import pyplot as plt
 
 import numpy as np
 from skimage.metrics import structural_similarity
