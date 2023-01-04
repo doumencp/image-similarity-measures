@@ -324,7 +324,3 @@ metric_functions = {
     "ssim": ssim,
     "uiq": uiq,
 }
-
-# org = cv2.imread("../example/frame1.png")
-# pred = cv2.imread("../example/frame2.png")
-# print(issm(org, pred))  

@@ -7,11 +7,15 @@ setuptools.setup(
     name="image-similarity-measures",
     version="0.3.5",
     author="UP42",
+    maintainer=[
+        {'name ': 'Pierre Doumenc', 'email': 'fcharp35@gmail.com'},
+        {'name ': 'François Charpentier', 'email': 'fcharp35@gmail.com'}
+    ],
     author_email="support@up42.com",
     description="Evaluation metrics to assess the similarity between two images.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/up42/image-similarity-measures",
+    url="https://github.com/doumencp/image-similarity-measures",
     packages=setuptools.find_packages(),
     license="MIT",
     classifiers=[
@@ -25,7 +29,7 @@ setuptools.setup(
         "rasterio": ["rasterio"],
         "speedups": ["pyfftw"],
     },
-    install_requires=["numpy", "scikit-image", "opencv-python", "phasepack"],
+    install_requires=["numpy", "scikit-image", "opencv-python", "phasepack", "matplotlib"],
     python_requires=">=3.6",
     entry_points={
         "console_scripts": [
